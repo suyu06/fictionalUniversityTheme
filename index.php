@@ -108,7 +108,8 @@
         <div class="glide__slides">
           <!-- fix the image url problem -->
           <!-- <div class="hero-slider__slide" style="background-image: url(images/bus.jpg)"> -->
-          <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('/images/bus.jpg')?>)">
+          <div class="hero-slider__slide" 
+          style="background-image: url(<?php echo get_theme_file_uri('/images/bus.jpg')?>)">
             <div class="hero-slider__interior container">
               <div class="hero-slider__overlay">
                 <h2 class="headline headline--medium t-center">Free Transportation</h2>
@@ -119,7 +120,8 @@
           </div>
           <!-- fix the image url problem -->
           <!-- <div class="hero-slider__slide" style="background-image: url(images/apples.jpg)"> -->
-          <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('/images/apples.jpg')?>)">
+          <div class="hero-slider__slide" 
+          style="background-image: url(<?php echo get_theme_file_uri('/images/apples.jpg')?>)">
             <div class="hero-slider__interior container">
               <div class="hero-slider__overlay">
                 <h2 class="headline headline--medium t-center">An Apple a Day</h2>
@@ -130,7 +132,8 @@
           </div>
           <!-- fix the image url problem -->
           <!-- <div class="hero-slider__slide" style="background-image: url(images/bread.jpg)"> -->
-          <div class="hero-slider__slide" style="background-image: url(<?php echo get_theme_file_uri('images/bread.jpg')?>)">
+          <div class="hero-slider__slide"
+           style="background-image: url(<?php echo get_theme_file_uri('images/bread.jpg')?>)">
             <div class="hero-slider__interior container">
               <div class="hero-slider__overlay">
                 <h2 class="headline headline--medium t-center">Free Food</h2>
