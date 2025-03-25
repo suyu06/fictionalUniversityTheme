@@ -40,7 +40,9 @@
       <?php } ?>
       <!-- the column on the right side of the parent page -->
       <div class="page-links">
-        <h2 class="page-links__title"><a href="#">About Us</a></h2>
+        <!-- change the static parent page name into dynamic -->
+        <!-- <h2 class="page-links__title"><a href="#">About Us</a></h2> -->
+        <h2 class="page-links__title"><a href="<?php echo get_permalink($theParent); ?>"><?php echo get_the_title($theParent);?></a></h2>
         <!-- change the static code  -->
         <!-- <ul class="min-list">
           <li class="current_page_item"><a href="#">Our History</a></li>
