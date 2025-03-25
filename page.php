@@ -39,6 +39,12 @@
       </div>
       <?php } ?>
       <!-- the column on the right side of the parent page -->
+       <?php
+       $testArray = get_pages(array(
+         'child_of'=> get_the_ID()
+       ));
+      //  check if the current page has children or not
+      if($theParent or $testArray){?> 
       <div class="page-links">
         <!-- change the static parent page name into dynamic -->
         <!-- <h2 class="page-links__title"><a href="#">About Us</a></h2> -->
@@ -63,9 +69,10 @@
           ?>
         </ul> 
       </div>
+     <?php } ?>
 
-      <div class="generic-content">
-         <!-- replace the static content with dynamic content according to different pages -->
+      <!-- replace the static content with dynamic content according to different pages -->
+      <div class="generic-content">        
         <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia voluptates vero vel temporibus aliquid possimus, facere accusamus modi. Fugit saepe et autem, laboriosam earum reprehenderit illum odit nobis, consectetur dicta. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos molestiae, tempora alias atque vero officiis sit commodi ipsa vitae impedit odio repellendus doloremque quibusdam quo, ea veniam, ad quod sed.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia voluptates vero vel temporibus aliquid possimus, facere accusamus modi. Fugit saepe et autem, laboriosam earum reprehenderit illum odit nobis, consectetur dicta. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos molestiae, tempora alias atque vero officiis sit commodi ipsa vitae impedit odio repellendus doloremque quibusdam quo, ea veniam, ad quod sed.</p> -->
         <?php the_content();?>
