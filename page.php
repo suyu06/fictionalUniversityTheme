@@ -37,16 +37,30 @@
            <span class="metabox__main"><?php the_title();?></span>
         </p>
       </div>
-       
-     
       <?php } ?>
-      <!-- <div class="page-links">
+      <!-- the column on the right side of the parent page -->
+      <div class="page-links">
         <h2 class="page-links__title"><a href="#">About Us</a></h2>
-        <ul class="min-list">
+        <!-- change the static code  -->
+        <!-- <ul class="min-list">
           <li class="current_page_item"><a href="#">Our History</a></li>
           <li><a href="#">Our Goals</a></li>
-        </ul>
-      </div> -->
+        </ul> -->
+        <ul class="min-list">
+          <?php
+          if($theParent){
+            $findChildrenOf = $theParent;
+          }else{
+            $findChildrenOf = get_the_ID();
+          }
+          wp_list_pages(array(
+            'title_li'=> NULL,
+            'child_of'=> $findChildrenOf,
+            'sort_column'=> 'menu_order'
+          ));
+          ?>
+        </ul> 
+      </div>
 
       <div class="generic-content">
          <!-- replace the static content with dynamic content according to different pages -->
