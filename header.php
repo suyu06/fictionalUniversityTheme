@@ -1,13 +1,14 @@
 <!-- <h1>Greetings from header.php</h1> -->
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
     <!-- <meta charset="UTF-8">-->    
     <!-- <title>Document</title> -->  
+    <meta charset="<?php bloginfo('charset')?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
     <!-- <h1>Fictional University</h1> -->
     <header class="site-header">
       <div class="container">
