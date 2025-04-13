@@ -1,1 +1,7 @@
-this a generic blog lsiting screen templet.
+<?php
+get_header();
+?>
+
+<?php
+get_footer();
+?>
