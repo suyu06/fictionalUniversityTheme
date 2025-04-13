@@ -39,6 +39,7 @@ get_header();
         </div>
 
     <?php }
+    // show the pagination links
     echo paginate_links();
     ?>
 
