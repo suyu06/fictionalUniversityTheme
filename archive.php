@@ -16,7 +16,7 @@ get_header();
             <!-- use new function the_archive_title() -->
              <?php the_archive_title(); ?></h1>
         <div class="page-banner__intro">
-            <p>Keep up with our latest news.</p>
+            <p> <?php the_archive_description(); ?></p>
         </div>
     </div>
 </div>
