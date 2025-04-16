@@ -63,21 +63,17 @@ while ($n < count($names)) {
         array(
           'posts_per_page'=>2,
           'post_type'=>'event',
-          'meta_key'=>'event_date',
-          'orderby'=>'meta_value',  
+         
         )
       );
       while($homepageEvents->have_posts()){
         $homepageEvents->the_post(); ?>
         <div class="event-summary">
           <a class="event-summary__date t-center" href="<?php the_permalink(); ?>">
-            <span class="event-summary__month">
-              <!-- The 'event_date' is a custom field that stores the date of the event -->
-              <!-- The 'get_field' function retrieves the value of the custom field -->
-              <?php $eventDate = new DateTime(get_field('event_date')); echo $eventDate->format('M'); ?>
+            <span class="event-summary__month">Mar
             </span>
             <span class="event-summary__day">
-              <?php echo $eventDate->format('d'); ?>
+              25
             </span>
           </a>
           <div class="event-summary__content">
@@ -96,7 +92,7 @@ while ($n < count($names)) {
 
      
 
-      <p class="t-center no-margin"><a href="<?php echo site_url('/event'); ?>" class="btn btn--blue">View All Events</a></p>
+      <p class="t-center no-margin"><a href="<?php echo get_post_type_archive_link('event'); ?>" class="btn btn--blue">View All Events</a></p>
     </div>
   </div>
   <div class="full-width-split__two">
