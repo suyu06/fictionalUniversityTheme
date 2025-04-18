@@ -61,8 +61,23 @@ while ($n < count($names)) {
 
       $homepageEvents = new WP_Query(
         array(
+          $today=date('Ymd'),  // Get today's date in Ymd format
           'posts_per_page' => 2,
           'post_type' => 'event',
+          'meta_key' => 'event_date',
+          'orderby' => 'meta_value_num',  // Use 'meta_value_num' for numeric sorting   
+          'order' => 'ASC',  // Order by ascending date
+          'meta_query' => array(
+            array(
+              'key' => 'event_date',
+              'compare' => '>=',
+              'value' => $today,  // Compare with the current date in Ymd format
+              'type' => 'numeric'  // Ensure the comparison is numeric
+            )
+          ),    
+          
+      
+          
 
         )
       );
