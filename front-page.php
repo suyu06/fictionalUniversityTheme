@@ -70,10 +70,17 @@ while ($n < count($names)) {
         $homepageEvents->the_post(); ?>
         <div class="event-summary">
           <a class="event-summary__date t-center" href="<?php the_permalink(); ?>">
-            <span class="event-summary__month">Mar
+            <span class="event-summary__month"> <?php
+              // Get the month name from the event date
+              $eventDate = new DateTime(get_field('event_date'));
+              echo $eventDate->format('M'); ?>
             </span>
+            
             <span class="event-summary__day">
-              25
+              <?php 
+              // Get the day of the month from the event date
+            // The 'd' format returns the day of the month with leading zeros (01 to 31)
+             echo $eventDate->format('d'); ?>
             </span>
           </a>
           <div class="event-summary__content">
