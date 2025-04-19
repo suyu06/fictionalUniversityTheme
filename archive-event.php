@@ -19,10 +19,13 @@ get_header();
         the_post(); ?>
         <div class="event-summary">
           <a class="event-summary__date t-center" href="<?php the_permalink(); ?>">
-            <span class="event-summary__month"> Mar
+            <span class="event-summary__month"><?php 
+            $eventDate=new DateTime(get_field('event_date'));
+            echo $eventDate->format('M'); // Get the month name from the event date
+            ?></span>          
             </span>
             <span class="event-summary__day">
-              25
+              <?php  echo $eventDate-> format('d');?>
             </span>
           </a>
           <div class="event-summary__content">

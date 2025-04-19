@@ -76,9 +76,6 @@ while ($n < count($names)) {
             )
           ),    
           
-      
-          
-
         )
       );
       while ($homepageEvents->have_posts()) {
