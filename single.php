@@ -25,10 +25,11 @@ while (have_posts()) {
                     in <?php echo get_the_category_list(', '); ?></span>
         </p>
       </div>
-       <div class="generic-content"><?php the_content(); ?></div>     
+       <div class="generic-content"><?php the_content(); ?></div>    
+       <?php 
+       ?> 
       </div>     
-      <!-- <h2><?php the_title(); ?></h2>
-      <p><?php the_content(); ?></p>  -->
+      
 <?php         }
 get_footer();
 ?>
