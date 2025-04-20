@@ -23,10 +23,76 @@ while (have_posts()) {
            <span class="metabox__main"><?php the_title();?></span>
         </p>
       </div>
-       <div class="generic-content"><?php the_content(); ?></div>     
+       <div class="generic-content"><?php the_content(); ?></div>   
+       
+       <?php     
+
+      $homepageEvents = new WP_Query(
+        array(
+          $today=date('Ymd'),  // Get today's date in Ymd format
+          'posts_per_page' => 2,
+          'post_type' => 'event',
+          'meta_key' => 'event_date',
+          'orderby' => 'meta_value_num',  // Use 'meta_value_num' for numeric sorting   
+          'order' => 'ASC',  // Order by ascending date
+          'meta_query' => array(
+            array(
+              'key' => 'event_date',
+              'compare' => '>=',
+              'value' => $today,  // Compare with the current date in Ymd format
+              'type' => 'numeric'  // Ensure the comparison is numeric
+            ),
+            array(
+              'key' => 'related_programs', 
+              'compare' => 'LIKE',
+              'value' => '"' . get_the_ID() . '"',  // Compare with the current program ID
+              // The 'LIKE' operator is used to check if the program ID is in the related programs field    
+          ),    
+          
+        ))
+      );    
+     if($homepageEvents->have_posts()){
+        echo '<hr class="section-break">';
+        echo '<h2 class="headline headline--medium">Upcoming ' . get_the_title() . ' Events </h2>';
+  
+        while ($homepageEvents->have_posts()) {
+          $homepageEvents->the_post(); ?>
+          <div class="event-summary">
+            <a class="event-summary__date t-center" href="<?php the_permalink(); ?>">
+              <span class="event-summary__month"> <?php
+                // Get the month name from the event date
+                $eventDate = new DateTime(get_field('event_date'));
+                echo $eventDate->format('M'); ?>
+              </span>
+              
+              <span class="event-summary__day">
+                <?php 
+                // Get the day of the month from the event date
+              // The 'd' format returns the day of the month with leading zeros (01 to 31)
+               echo $eventDate->format('d'); ?>
+              </span>
+            </a>
+            <div class="event-summary__content">
+              <h5 class="event-summary__title headline headline--tiny">
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+              </h5>
+              <p><?php if (has_excerpt()) {
+                    echo get_the_excerpt();
+                  } else {
+                    echo wp_trim_words(get_the_content(), 18);
+                  } ?>
+                <a href="<?php the_permalink(); ?>" class="nu gray">Learn more</a>
+              </p>
+            </div>
+          </div>
+        <?php }
+
+     }
+      ?> 
+
+
       </div>     
-      <!-- <h2><?php the_title(); ?></h2>
-      <p><?php the_content(); ?></p>  -->
+      
 <?php         }
 get_footer();
 ?>
