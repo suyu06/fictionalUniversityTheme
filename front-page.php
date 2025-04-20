@@ -131,7 +131,7 @@ while ($n < count($names)) {
       // The 'orderby' and 'order' parameters control the order of the posts
       $homepagePosts = new WP_Query(
         array(
-          'posts_per_page' =>-1,
+          'posts_per_page' =>2,
           'post_type' => 'post',
           'orderby' => 'post_date',
           'order' => 'DESC'

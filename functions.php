@@ -21,7 +21,9 @@ add_action('after_setup_theme','university_features');
 
 // Add custom post type for event
 function university_adjust_queries($query){
-    if(!is_admin() AND is_post_type_archive('event') AND $query->is_main_query()){
+    if(!is_admin() && is_post_type_archive('event') && $query->is_main_query()){
+        // Set the number of posts per page to all posts
+        $query->set('posts_per_page',-1);
         $query->set('meta_key','event_date');
         $query->set('orderby','meta_value_num');
         $query->set('order','ASC');
