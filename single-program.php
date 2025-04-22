@@ -52,10 +52,10 @@ while (have_posts()) {
         <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
     <?php }
     }
-    Wp_reset_postdata(); // Reset the post data after custom query
+    wp_reset_postdata(); // Reset the post data after custom query
     // This is important to avoid conflicts with the main query
     ?>
-    <hr class="section-break">
+    <hr class="section-breawk">
     <?php
     // custom query to get the events related to the program
 
