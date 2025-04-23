@@ -47,10 +47,20 @@ while (have_posts()) {
     if ($relatedProfessors->have_posts()) {
       echo '<hr class="section-break">';
       echo '<h2 class="headline headline--medium">' . get_the_title() . ' Professors </h2>';
+      echo '<ul class="professor-card__list">';
       while ($relatedProfessors->have_posts()) {
         $relatedProfessors->the_post(); ?>
-        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+        <li class="professor-card__list-item">
+          <a class="professor-card" href="<?php the_permalink(); ?>">
+            <img class="professor-card__image" src="<?php the_post_thumbnail_url('professorLandscape'); ?>">
+            <span class="professor-card__name"><?php the_title(); ?></span>
+          </a>
+        </li>
     <?php }
+    echo '</ul>';
+    } else {
+      echo '<hr class="section-break">';
+      echo '<h2 class="headline headline--medium">No Professors Found</h2>';
     }
     wp_reset_postdata(); // Reset the post data after custom query
     // This is important to avoid conflicts with the main query
