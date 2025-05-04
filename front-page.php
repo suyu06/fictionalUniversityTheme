@@ -81,36 +81,9 @@ while ($n < count($names)) {
         )
       );
       while ($homepageEvents->have_posts()) {
-        $homepageEvents->the_post(); ?>
-        <div class="event-summary">
-          <a class="event-summary__date t-center" href="<?php the_permalink(); ?>">
-            <span class="event-summary__month"> <?php
-              // Get the month name from the event date
-              $eventDate = new DateTime(get_field('event_date'));
-              echo $eventDate->format('M'); ?>
-            </span>
-            
-            <span class="event-summary__day">
-              <?php 
-              // Get the day of the month from the event date
-            // The 'd' format returns the day of the month with leading zeros (01 to 31)
-             echo $eventDate->format('d'); ?>
-            </span>
-          </a>
-          <div class="event-summary__content">
-            <h5 class="event-summary__title headline headline--tiny">
-              <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-            </h5>
-            <p><?php if (has_excerpt()) {
-                  echo get_the_excerpt();
-                } else {
-                  echo wp_trim_words(get_the_content(), 18);
-                } ?>
-              <a href="<?php the_permalink(); ?>" class="nu gray">Learn more</a>
-            </p>
-          </div>
-        </div>
-      <?php }
+        $homepageEvents->the_post(); 
+        get_template_part('template-parts/content', 'event'); 
+      }
 
       // Reset the post data to the original query
       wp_reset_postdata(); ?>
