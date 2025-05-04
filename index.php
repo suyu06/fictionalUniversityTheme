@@ -1,18 +1,19 @@
 <?php
 get_header();
+pageBanner(array(
+    'title'=> 'Welcome to our blog!',
+    'subtitle'=> 'Keep up with our latest news.'));
 ?>
-<div class="page-banner">
+<!-- <div class="page-banner">
     <div class="page-banner__bg-image"
         style="background-image: url(<?php echo get_theme_file_uri('images/ocean.jpg') ?>)"></div>
     <div class="page-banner__content container container--narrow">
-        <!-- replace the static title with dynamic title according to different pages -->
-        <!-- <h1 class="page-banner__title">Our History</h1> -->
-        <h1 class="page-banner__title">Welcome to our blog!</h1>
+                <h1 class="page-banner__title">Welcome to our blog!</h1>
         <div class="page-banner__intro">
             <p>Keep up with our latest news.</p>
         </div>
     </div>
-</div>
+</div> -->
 <div class="container container--narrow page-section">
     <?php
     // if there is a post, then show the the title and content of the post
